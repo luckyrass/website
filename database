@@ -1,0 +1,54 @@
+图片，附件等
+1. news(新闻表)
+新闻id newsId varchar(255) primary key
+标题 title varchar(255)
+关键字 keywords varchar(100)
+作者 authorId varchar(255)
+发布时间 releaseDate DateTime
+内容简介 newsIntro varchar(4000)
+内容 newsContent BLOB
+新闻类别 newsType Int
+权限 privilege Int (0表示对所有人可见，1表示对自己可见) default 0
+
+2. user(用户表)
+用户id userId varchar(255) primary key
+用户名(唯一) username varchar(50)
+密码 password varchar(50)
+邮箱 email varchar(50)
+
+3.(newsCategory)新闻类别表
+父类别 fType Int
+类别id typeId Int primary key
+类别名称 name varchar(50)
+类别描述 description varchar(255)
+
+
+
+CREATE TABLE news (
+`newsId`  varchar(255) NOT NULL DEFAULT '' ,
+`title`  varchar(255) NOT NULL ,
+`keywords`  varchar(100) ,
+`authorId`  varchar(255) ,
+`releaseDate`  datetime NOT NULL ,
+`newsIntro`  varchar(4000) ,
+`newsContent`  blob ,
+`newsType`  int NOT NULL ,
+`privilege`  int NOT NULL DEFAULT 0 ,
+PRIMARY KEY (`newsId`)
+);
+
+CREATE TABLE user (
+`userId`  varchar(255) NOT NULL ,
+`username`  varchar(50) NOT NULL ,
+`password`  varchar(50) NOT NULL ,
+`email`  varchar(50),
+PRIMARY KEY (`userId`)
+);
+
+CREATE TABLE newsCategory (
+`fType`  int DEFAULT 0 ,
+`typeId`  int NOT NULL AUTO_INCREMENT ,
+`name`  varchar(50) NOT NULL ,
+`description`  varchar(255) ,
+PRIMARY KEY (`typeId`)
+);
