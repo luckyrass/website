@@ -9,6 +9,7 @@ logs/
 bin/
 tmp/
 target/
+classes/
 build/
 *.tmp
 *.bak
