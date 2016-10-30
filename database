@@ -17,7 +17,7 @@
 邮箱 email varchar(50)
 
 3.(newsCategory)新闻类别表
-父类别 fType Int
+父类别 fType Int (为0时表示为顶级目录)
 类别id typeId Int primary key
 类别名称 name varchar(50)
 类别描述 description varchar(255)
