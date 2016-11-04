@@ -1,6 +1,7 @@
 /* CSS Document */
 * { margin: 0; padding: 0 }
-body { font: 12px Microsoft YaHei, Arial, Helvetica, sans-serif; color: #756F71 }
+/*body { font: 12px Microsoft YaHei, Arial, Helvetica, sans-serif; color: #756F71 }*/
+body { font: 12px Arial, Helvetica, sans-serif; color: #756F71 }
 img { border: 0; display: block }
 ul { list-style: none; }
 a:link, a:visited {text-decoration: none; color: #333;}

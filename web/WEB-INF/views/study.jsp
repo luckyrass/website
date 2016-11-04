@@ -12,42 +12,39 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <html>
 <head>
-    <title>首页</title>
+    <title>${categoryName}</title>
     <link rel="shortcut icon" type="image/png" href="<c:url value="/resources/img/icon.png" />">
 </head>
 <body>
     <%@include file="header.jsp"%>
-    <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
-    <div class="banner">
-        <section class="box">
-            <ul class="texts">
-                <p>我听闻最美的故事，是公主死去了，屠龙的少年还在燃烧。</p>
-                <p>火苗再小，你都要反复的点燃。</p>
-                <p>所谓热血的少年，青涩的爱恋，死亡与梦之约。</p>
-            </ul>
-            <div class="avatar"><a href="#"><span>jdan</span></a> </div>
-        </section>
-    </div>
-    <article>
-        <h2 class="title_tj">
-            <p>文章<span>推荐</span></p>
-        </h2>
-        <div class="bloglist left">
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+
+    <article class="blogs">
+        <h1 class="t_nav"><span>good good study, day day up!</span><a href="<c:url value="/index" />" class="n1">网站首页</a><a href="#" class="n2">${categoryName}</a></h1>
+        <div class="newblog left">
             <c:forEach var="news" items="${newsList}">
-                <div class = "item">
-                    <h3>${news.title}</h3>
-                    <!-- <figure><img src="images/001.png"></figure> -->
-                    <ul>
+                <div>
+                    <h2>${news.title}</h2>
+                    <p class="dateview"><span>发布时间：<fmt:formatDate value="${news.releasedate}" type="date"/></span><span>作者：${news.authorname}</span><span>分类：[ <a href="#">${news.categoryname}</a> ]</span></p>
+                    <%--<figure><img src="images/01.jpg"></figure>--%>
+                    <ul class="nlist">
                         <p>${news.newsintro}</p>
-                        <a href="<c:url value="/detailPage?id=${news.newsid}" />" target="_blank" class="readmore">阅读全文>></a>
+                        <a title="/" href="<c:url value="/detailPage?id=${news.newsid}" />" target="_blank" class="readmore">阅读全文>></a>
                     </ul>
-                    <p class="dateview"><span><fmt:formatDate value="${news.releasedate}" type="date"/></span><span>作者：${news.authorname}</span><span>个人博客：[ <a href="#">${news.categoryname}</a> ]</span></p>
+                    <div class="line"></div>
                 </div>
             </c:forEach>
-
+            <div class="blank"></div>
         </div>
         <aside class="right">
-            <div class="weather"><iframe width="250" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=1"></iframe></div>
+            <div class="rnav">
+                <ul>
+                    <li class="rnav1"><a href="<c:url value="/detailStudy?type=算法" />" target="_blank">算法</a></li>
+                    <li class="rnav2"><a href="<c:url value="/detailStudy?type=Java" />" target="_blank">Java</a></li>
+                    <li class="rnav3"><a href="<c:url value="/detailStudy?type=论文" />" target="_blank">论文</a></li>
+                    <li class="rnav4"><a href="<c:url value="/detailStudy?type=心得笔记" />" target="_blank">心得笔记</a></li>
+                </ul>
+            </div>
             <div class="news">
                 <h3>
                     <p>最新<span>文章</span></p>
@@ -73,6 +70,7 @@
             <script type="text/javascript">
                 document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
             </script>
+            <!-- Baidu Button END -->
         </aside>
     </article>
 </body>
